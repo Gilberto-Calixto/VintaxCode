@@ -6,6 +6,9 @@ import android.os.Bundle
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import android.widget.ImageView
+import android.widget.LinearLayout
+import android.widget.TextView
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 
@@ -22,7 +25,7 @@ class secondActivity : AppCompatActivity() {
         mainItems.add(
             MainItem(
                 id = 1,
-                drawableId = R.drawable.tomioka,
+                drawableId = R.drawable.baseline_diamond_24,
                 textStringId = R.string.titlenam,
                 color = Color.GREEN
             )
@@ -30,7 +33,7 @@ class secondActivity : AppCompatActivity() {
         mainItems.add(
             MainItem(
                 id = 2,
-                drawableId = R.drawable.ic_launcher_background,
+                drawableId = R.drawable.baseline_flare_24,
                 textStringId = R.string.geradir,
                 color = Color.CYAN
             )
@@ -64,8 +67,14 @@ class secondActivity : AppCompatActivity() {
 
     private class MainViewHolder(itemview: View) : RecyclerView.ViewHolder(itemview) {
         fun bind(item: MainItem){
-            val buttonTest : Button = itemView.findViewById(R.id.buttGrid1)
-            buttonTest.setText(item.textStringId)
+            val imgg : ImageView = itemView.findViewById(R.id.imgTest)
+            val name : TextView = itemView.findViewById(R.id.text_Icon)
+            val btc_and : LinearLayout = itemView as LinearLayout
+
+            imgg.setImageResource(item.drawableId)
+            name.setText(item.textStringId)
+            btc_and.setBackgroundColor(item.color)
+
         }
     }
 }
